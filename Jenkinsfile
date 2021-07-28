@@ -4,19 +4,19 @@ pipeline {
     agent any
 
 stages {
-        stage('Stage-1') {
+        stage('CodeCheckout') {
             steps {
         git credentialsId: 'git_credentials', url: 'https://github.com/shashikanth-t/mwebrepo.git'        
 		echo "Code Checkout done successfully."
                   }
                         }
-        stage('Stage-2') {
+        stage('CodeBuild') {
             steps {
                sh 'mvn clean install'
 		echo "Code Build done successfully."
                   }
                         }
-        stage('Stage-3') {
+        stage('CodeDeploy') {
              steps {
 		sshagent(['deploy_user']) {
   			
