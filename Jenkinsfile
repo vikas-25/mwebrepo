@@ -21,7 +21,7 @@ pipeline {
                 sshagent(credentials: ['deploy_user'], ignoreMissing: true) {
                 sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war  ec2-user@18.191.206.148:/opt/apache-tomcat-8.5.35/webapps"
                   }
-                echo "code Deploy is done"
+                echo "code Deploy is successfully done"
             }
                              	}                     	
                              	
